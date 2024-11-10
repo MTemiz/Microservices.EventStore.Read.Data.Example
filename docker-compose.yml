@@ -1,0 +1,12 @@
+﻿services:
+  product.application:
+    image: product.application
+    build:
+      context: .
+      dockerfile: Product.Application/Dockerfile
+
+  product.event.handler.service:
+    image: product.event.handler.service
+    build:
+      context: .
+      dockerfile: Product.Event.Handler.Service/Dockerfile

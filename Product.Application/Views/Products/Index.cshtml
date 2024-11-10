@@ -1,0 +1,40 @@
+@model IEnumerable<Shared.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(c => c.Id)</th>
+        <th>@Html.DisplayNameFor(c => c.ProductName)</th>
+        <th>@Html.DisplayNameFor(c => c.Count)</th>
+        <th>@Html.DisplayNameFor(c => c.IsAvailable)</th>
+        <th>@Html.DisplayNameFor(c => c.Price)</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => product.Id)</td>
+            <td>@Html.DisplayFor(modelItem => product.ProductName)</td>
+            <td>@Html.DisplayFor(modelItem => product.Count)</td>
+            <td>@Html.DisplayFor(modelItem => product.IsAvailable)</td>
+            <td>@Html.DisplayFor(modelItem => product.Price)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { productId = product.Id })
+                @Html.ActionLink("Details", "Details", new { productId = product.Id })
+                @Html.ActionLink("Delete", "Delete", new { productId = product.Id })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
